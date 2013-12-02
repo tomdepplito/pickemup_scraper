@@ -1,45 +1,67 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.1'
+#MAGIC
+gem 'rails', '~> 4.0.1'
 
-# Use postgresql as the database for Active Record
+#DATABASES
 gem 'pg'
+gem 'pg-hstore'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+#JSON PARSING
+gem 'multi_json'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+#CRON
+gem 'sidetiq'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+#QUEUES
+gem 'sidekiq'
+gem 'sinatra'
+gem 'slim'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+#APIs
+gem 'crunchbase'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
+#WEB SERVERS
+gem 'unicorn'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#HTML TEXT EDITOR
+gem 'ckeditor_rails'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+#OTHER
+gem 'httparty'
+gem 'redis'
 gem 'jbuilder', '~> 1.2'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+#JAVASCRIPT
+gem 'uglifier', '>= 1.3.0'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'jquery-rails'
+
+group :production do
+  #HEROKU
+  gem 'rails_12factor'
+
+  #MANAGEMENT SYSTEMS
+  #gem 'newrelic_rpm'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+group :test, :development do
+  gem 'pry' #debugging
+  gem 'rspec-rails'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'fakeredis', require: 'fakeredis/rspec'
+  gem 'timecop'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
+  gem 'ffaker'
+  gem 'rspec-sidekiq'
+end
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :development do
+  gem 'annotate'
+  gem 'figaro' #ENV VARIABLES (application.yml)
+end
