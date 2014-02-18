@@ -223,6 +223,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   multi_json
+  nokogiri
   pg
   pg-hstore
   pry

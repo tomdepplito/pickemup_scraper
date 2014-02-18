@@ -29,6 +29,7 @@ gem 'unicorn'
 gem 'ckeditor_rails'
 
 #OTHER
+gem 'nokogiri'
 gem 'httparty'
 gem 'redis'
 gem 'jbuilder', '~> 1.2'
