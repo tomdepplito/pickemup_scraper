@@ -26,4 +26,8 @@ PickemupScraper::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  AngellistApi.configure do |config|
+    config.access_token = ENV["ANGEL_LIST_TOKEN"]
+  end
 end

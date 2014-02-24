@@ -19,8 +19,12 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'slim'
 
+#AUTHORIZATION
+gem 'oauth2'
+
 #APIs
 gem 'crunchbase'
+gem 'angellist_api'
 
 #WEB SERVERS
 gem 'unicorn'
