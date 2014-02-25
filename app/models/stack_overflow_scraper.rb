@@ -15,11 +15,11 @@ class StackOverflowScraper < Scraper
   def listings
     @doc.css('item').each do |element|
       listing = {}
-      listing['title'] = element.css('title')[0].to_str
-      listing['link'] = element.css('guid')[0].to_str
-      listing['description'] = element.css('description')[0].to_str
-      listing['pub_date'] = element.css('pubDate')[0].to_str
-      listing['categories'] = element.css('categories').inject([]) { |arr, cat| arr << cat.to_str }
+      listing['title']         = element.css('title')[0].to_str
+      listing['link']          = element.css('guid')[0].to_str
+      listing['description']   = element.css('description')[0].to_str
+      listing['creation_date'] = element.css('pubDate')[0].to_str
+      listing['categories']    = element.css('categories').inject([]) { |arr, cat| arr << cat.to_str }
       # Post to pickemup site
       # Also, DRY up this method
     end
