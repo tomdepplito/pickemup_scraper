@@ -15,13 +15,13 @@ class AngelListScraper < Scraper
     role = job['tags'].detect { |tag| tag['tag_type'] == "RoleTag" }['name']
     if role =~ /developer/
       listing = {}
-      listing['job_title']      = job['title']
-      listing['link']           = job['startup']['angellist_url']
-      listing['creation_date']  = job['created_at']
-      listing['salary_min']     = job['salary_min']
-      listing['salary_max']     = job['salary_max']
-      listing['company_url']    = job['startup']['company_url']
-      listing['categories']     = job['tags'].inject([]) { |arr, tag| arr << tag['name'] }
+      listing['job_title']         = job['title']
+      listing['link']              = job['startup']['angellist_url']
+      listing['creation_time']     = job['created_at']
+      listing['salary_range_low']  = job['salary_min']
+      listing['salary_range_high'] = job['salary_max']
+      listing['company_url']       = job['startup']['company_url']
+      listing['skills']            = job['tags'].inject([]) { |arr, tag| arr << tag['name'] }
       post_listing(listing)
     end
   end
