@@ -11,7 +11,7 @@ class Scraper # This is basically an abstract class - Don't instantiate this
   def post_listing(listing)
     begin
       Timeout::timeout(PICKEMUP_POST_TIMEOUT) do
-        return HTTParty.post(ENV["PICKEMUP_URL"] + "/external_job_listings/save_listing", body: {:job_listing => listing}.to_json, :headers => { 'Content-Type' => 'application/json' })
+        return HTTParty.post(ENV["PICKEMUP_URL"] + "/external_job_listings", body: {:job_listing => listing}.to_json, :headers => { 'Content-Type' => 'application/json' })
       end
     rescue
     end
