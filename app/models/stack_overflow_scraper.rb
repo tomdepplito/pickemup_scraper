@@ -6,7 +6,7 @@ class StackOverflowScraper < Scraper
 
   TARGET_URL = "http://careers.stackoverflow.com/jobs/feed?"
 
-  def initialize(search_params)
+  def initialize(search_params = {})
     @target_url = self.class::TARGET_URL
     @search_params = search_params
     super()
