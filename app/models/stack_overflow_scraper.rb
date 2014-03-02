@@ -36,7 +36,7 @@ class StackOverflowScraper < Scraper
       listing['link']              = parse_element(element, 'guid')
       listing['job_description']   = parse_element(element, 'description')
       listing['creation_time']     = parse_element(element, 'pubDate')
-      listing['skills']            = parse_element(element, 'categories')
+      listing['skills']            = parse_element(element, 'category')
       post_listing(listing)
     end
   end
