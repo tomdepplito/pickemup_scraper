@@ -45,7 +45,7 @@ class StackOverflowScraper < Scraper
     parsed = element.css(name)
     if parsed.length > 0
       element.css(name).tap do |e|
-        return name =~ /categories/ ? e.inject([]) { |arr, cat| arr << cat.to_str } : e[0].to_str
+        return name =~ /category/ ? e.inject([]) { |arr, cat| arr << cat.to_str } : e[0].to_str
       end
     else
       return ""
