@@ -1,5 +1,6 @@
 class Scraper # This is basically an abstract class - Don't instantiate this
   include HTTParty
+  include PreferenceConstants
   PICKEMUP_POST_TIMEOUT = 3
 
   def initialize
