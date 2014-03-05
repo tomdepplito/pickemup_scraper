@@ -23,7 +23,6 @@ class AngelListScraper < Scraper
       listing['company_url']          = job['startup']['company_url']
       listing['locations']            = normalize_params(job, 'LocationTag')
       listing['acceptable_languages'] = normalize_params(job, 'SkillTag')
-      binding.pry
       post_listing(listing)
     end
   end
